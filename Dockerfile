@@ -11,3 +11,14 @@ RUN apt-get update -q && \
     apt-get clean -y && \
     rm -rf /var/cache/apt/*
 
+ONBUILD WORKDIR /usr/src/app
+
+ONBUILD COPY *.js* /usr/src/app/
+ONBUILD RUN npm install
+
+ONBUILD ENV MIX_ENV prod
+ONBUILD COPY mix.* /usr/src/app/
+ONBUILD COPY config /usr/src/app/
+ONBUILD RUN mix do deps.get, deps.compile
+
+
