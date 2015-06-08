@@ -5,6 +5,7 @@ This image is based on [shanesveller/elixir-lang](https://registry.hub.docker.co
 At the time of writing, this Dockerfile results in an image that also contains:
 
 * NodeJS 0.12.x (installed via [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)'s APT repository)
+* npm 2.10.1
 
 It also includes the following `ONBUILD` steps for convenience of use as a base image itself:
 
