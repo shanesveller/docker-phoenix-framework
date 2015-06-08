@@ -31,3 +31,6 @@ Want to check the current versions included in the latest image in light of futu
 Not happy with the Dockerfile steps? Having compatibility problems? Try one of these alternatives:
 
 * [nifty/elixir](https://registry.hub.docker.com/u/nifty/elixir/)
+* [josephyi/phoenixframework](https://registry.hub.docker.com/u/josephyi/phoenixframework/)
+* [marcelocg/phoenix](https://registry.hub.docker.com/u/marcelocg/phoenix/)
+* [mikaak/node-elixir-phoenix](https://registry.hub.docker.com/u/mikaak/node-elixir-phoenix/)
