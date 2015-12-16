@@ -8,7 +8,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
     echo 'deb https://deb.nodesource.com/node_0.12 trusty main' > /etc/apt/sources.list.d/nodesource.list && \
     apt-get update -q && \
-    apt-get -y install git inotify-tools nodejs=0.12.7-1nodesource1~trusty1 postgresql-client && \
+    apt-get -y install build-essential git inotify-tools nodejs=0.12.9-1nodesource1~trusty1 postgresql-client && \
     apt-get clean -y && \
     rm -rf /var/cache/apt/*
 
@@ -20,6 +20,4 @@ ONBUILD RUN npm install
 ONBUILD ENV MIX_ENV prod
 ONBUILD COPY mix.* /usr/src/app/
 ONBUILD COPY config /usr/src/app/
-ONBUILD RUN mix do deps.get, deps.compile
-
-
+ONBUILD RUN mix do deps.get --only prod, deps.compile
