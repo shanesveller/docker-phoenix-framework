@@ -1,16 +1,9 @@
-FROM shanesveller/elixir-lang:latest
+FROM shanesveller/elixir-lang:1.2.3
 
 MAINTAINER Shane Sveller <shane@shanesveller.com>
 
-RUN export DEBIAN_FRONTEND=noninteractive && \
-    apt-get update -q && \
-    apt-get -y install apt-transport-https && \
-    curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
-    echo 'deb https://deb.nodesource.com/node_0.12 trusty main' > /etc/apt/sources.list.d/nodesource.list && \
-    apt-get update -q && \
-    apt-get -y install build-essential gettext git inotify-tools nodejs=0.12.9-1nodesource1~trusty1 postgresql-client && \
-    apt-get clean -y && \
-    rm -rf /var/cache/apt/*
+RUN apk-install nodejs postgresql-client
+RUN npm install -g npm
 
 ONBUILD WORKDIR /usr/src/app
 
