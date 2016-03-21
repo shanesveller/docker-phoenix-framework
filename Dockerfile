@@ -2,7 +2,7 @@ FROM shanesveller/elixir-lang:1.2.3
 
 MAINTAINER Shane Sveller <shane@shanesveller.com>
 
-RUN apk-install nodejs postgresql-client
+RUN apk-install git nodejs postgresql-client
 RUN npm install -g npm
 
 ONBUILD WORKDIR /usr/src/app
