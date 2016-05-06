@@ -1,11 +1,11 @@
 # Image Contents
 
-This image is based on [shanesveller/elixir-lang](https://registry.hub.docker.com/u/shanesveller/elixir-lang/) and includes the features of that image.
+This image is based on the [official Elixir image](https://hub.docker.com/_/elixir/) and includes the features of that image.
 
 At the time of writing, this Dockerfile results in an image that also contains:
 
-* NodeJS 0.12.x (installed via [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)'s APT repository)
-* npm 2.10.1
+* NodeJS 4.x (installed via [NodeSource](https://github.com/nodesource/distributions#debinstall)'s APT repository)
+* npm 3.8.9
 
 It also includes the following `ONBUILD` steps for convenience of use as a base image itself:
 
@@ -16,11 +16,17 @@ It also includes the following `ONBUILD` steps for convenience of use as a base 
 
 All of the above occur before any custom instructions in a child Dockerfile that uses `FROM` to inherit from this one.
 
+## Image Versions
+
+The `latest` tag on Docker Hub should always be reasonably in sync with the tip of `master` within this repository via automated builds. Starting with `1.2.4`, git tags will also result in a corresponding Docker Hub tag.
+
 ## Checking Versions
 
 Want to check the current versions included in the latest image in light of future rebuilds?
 
-* `docker run -it --rm shanesveller/elixir-lang apt-cache policy nodejs`
+* `docker run -it --rm shanesveller/phoenix-framework node -v`
+* `docker run -it --rm shanesveller/phoenix-framework npm -v`
+* `docker run -it --rm shanesveller/phoenix-framework mix hex.info`
 
 # Caveats
 
